@@ -1,14 +1,19 @@
 import React from "react";
-import "./globals.css"
+import "./globals.css";
+
+export const metadata = {
+  title: "Ishan Kaushik | AI Engineer",
+  description: "AI Engineer specializing in AI Automation and RAG Systems",
+};
 
 export default function RootLayout({
-  children,      // children = dynamic content (our pages)
+  children,
 }: {
   children: React.ReactNode;
 }) {
   return (
     <html lang="en">
-      <body style={{ margin: 0, background: "#0a0a0a", color: "white" }}>
+      <body className="bg-[#0a0a0a] text-white antialiased">
         {children}
       </body>
     </html>
