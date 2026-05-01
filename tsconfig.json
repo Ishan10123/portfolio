@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "jsx": "preserve",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "noEmit": true
+  }
+}
+
+/*  TYPE SYSTEM CONTROL
+| Option   | Meaning       |
+| -------- | ------------- |
+| `target` | JS version    |
+| `lib`    | browser APIs  |
+| `jsx`    | React support |
+| `strict` | strict typing |
+| `noEmit` | no JS output  |
+  */
