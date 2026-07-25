@@ -1,9 +1,23 @@
-module.exports = {};
+/** @type {import('next').NextConfig} */
 
-/* FRAMEWORK CONTROL LAYER
-What it does:
-customize Next.js behavior
-add configs like:
-image domains
-environment variables
-performance tweaks  */
+const nextConfig = {
+  reactStrictMode: true,
+
+  poweredByHeader: false,
+
+  compress: true,
+
+  productionBrowserSourceMaps: false,
+
+  images: {
+    formats: ["image/avif", "image/webp"],
+  },
+
+  experimental: {},
+
+  typescript: {
+    ignoreBuildErrors: false,
+  },
+};
+
+module.exports = nextConfig;

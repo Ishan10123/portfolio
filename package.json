@@ -1,14 +1,22 @@
 {
   "name": "portfolio",
+  "version": "1.0.0",
   "private": true,
+  "description": "Personal AI Software Engineer portfolio built with Next.js, TypeScript and Tailwind CSS.",
+  "author": "Ishan Kaushik",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "npm run type-check",
+    "type-check": "tsc --noEmit",
+    "build:check": "npm run type-check && npm run build",
+    "clean": "node -e \"require('node:fs').rmSync('.next',{recursive:true,force:true})\""
   },
   "dependencies": {
     "framer-motion": "^12.38.0",
-    "next": "16.2.4",
+    "next": "^16.2.11",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
@@ -19,5 +27,11 @@
     "postcss": "^8.4.0",
     "tailwindcss": "^3.4.0",
     "typescript": "^5.4.5"
+  },
+  "engines": {
+    "node": ">=18.18.0"
+  },
+  "allowScripts": {
+    "sharp@0.34.5": true
   }
 }

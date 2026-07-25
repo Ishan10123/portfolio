@@ -1,79 +1,139 @@
 import "./globals.css";
 import Navbar from "./components/Navbar";
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
+import type { Metadata, Viewport } from "next";
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
+  ? process.env.NEXT_PUBLIC_SITE_URL
+  : process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : "http://localhost:3000";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+
   title: {
-    default: "Ishan Kaushik | AI Engineer",
+    default: "Ishan Kaushik | AI Software Engineer",
     template: "%s | Ishan Kaushik",
   },
+
   description:
-    "AI Engineer specializing in AI Automation, RAG systems, and scalable backend solutions using LLMs and modern cloud technologies.",
+    "AI Software Engineer building production-ready AI agents, RAG systems, FastAPI services, intelligent document processing, and enterprise automation workflows.",
+
+  applicationName: "Ishan Kaushik Portfolio",
+
+  authors: [
+    {
+      name: "Ishan Kaushik",
+    },
+  ],
+
+  creator: "Ishan Kaushik",
+
+  publisher: "Ishan Kaushik",
+
+  category: "Technology",
+
+  referrer: "origin-when-cross-origin",
+
   keywords: [
     "Ishan Kaushik",
     "AI Engineer",
+    "Software Engineer",
+    "Generative AI",
+    "AI Agents",
     "RAG",
-    "LLM",
     "LangChain",
+    "LangGraph",
     "FastAPI",
+    "Python",
     "Machine Learning",
+    "LLMs",
+    "Prompt Engineering",
+    "Automation",
+    "Backend Development",
     "Portfolio",
   ],
-  authors: [{ name: "Ishan Kaushik" }],
-  creator: "Ishan Kaushik",
-  metadataBase: new URL("https://your-domain.com"), // update later
+
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+      "max-snippet": -1,
+    },
+  },
+
+  alternates: {
+    canonical: "/",
+  },
+
   openGraph: {
-    title: "Ishan Kaushik | AI Engineer",
+    title: "Ishan Kaushik | AI Software Engineer",
+
     description:
-      "AI Engineer building intelligent automation systems, RAG pipelines, and scalable backend solutions.",
-    url: "https://your-domain.com",
-    siteName: "Ishan Portfolio",
-    images: [
-      {
-        url: "/og.png", // add later
-        width: 1200,
-        height: 630,
-        alt: "Ishan Kaushik Portfolio",
-      },
-    ],
+      "Portfolio showcasing production AI agents, RAG pipelines, FastAPI services, intelligent document processing, automation, and backend engineering.",
+
+    url: "/",
+
+    siteName: "Ishan Kaushik Portfolio",
+
     locale: "en_US",
+
     type: "website",
   },
+
   twitter: {
-    card: "summary_large_image",
-    title: "Ishan Kaushik | AI Engineer",
+    card: "summary",
+
+    title: "Ishan Kaushik | AI Software Engineer",
+
     description:
-      "AI Engineer building AI automation systems and RAG pipelines.",
-    images: ["/og.png"],
+      "Portfolio showcasing AI engineering, AI agents, RAG systems, FastAPI, LangChain, and intelligent automation.",
   },
+
   icons: {
-    icon: "/favicon.ico",
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
   },
+
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#0a0a0a",
 };
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
-    <html lang="en" className={inter.variable} suppressHydrationWarning>
-      <body className="bg-[#0a0a0a] text-white antialiased selection:bg-white selection:text-black">
-
-        {/* Navbar */}
+    <html
+      lang="en"
+      suppressHydrationWarning
+    >
+      <body
+        className="bg-[#0a0a0a] text-white antialiased"
+      >
         <Navbar />
 
-        {/* Main Content Wrapper */}
-        <main className="relative overflow-x-hidden">
+        <main className="min-h-screen overflow-x-hidden">
           {children}
         </main>
-
       </body>
     </html>
   );

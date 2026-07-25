@@ -1,114 +1,186 @@
 export default function Projects() {
   const projects = [
     {
+      title: "Fluid AI Autonomous Document Agent",
+      desc: "Autonomous agentic AI application with planning, execution, reflection, structured JSON outputs, validation, and professional DOCX report generation.",
+      tech: ["FastAPI", "Google Gemini", "Pydantic", "Python"],
+      github: "https://github.com/Ishan10123/Fluid-AI-Autonomous-Agents",
+      featured: true,
+    },
+
+    {
+      title: "SmartNode Support Intelligence",
+      desc: "AI-powered support triage platform for classifying customer calls, emails, and attachments with transcription, summaries, ticket routing, and SLA workflows.",
+      tech: ["Streamlit", "Whisper", "Python", "LLM"],
+      github: "https://github.com/Ishan10123/smartnode-support-triage",
+      featured: true,
+    },
+
+    {
+      title: "MoveUp Media AI Operations",
+      desc: "Enterprise AI platform for YouTube analytics, operational intelligence, autonomous reporting, and conversational insights.",
+      tech: ["Streamlit", "Gemini", "YouTube API", "Python"],
+      github: "https://github.com/Ishan10123/Move-Up-Media-AI-Automation",
+      featured: true,
+    },
+
+    {
       title: "AI Proposal Copilot",
-      desc: "Multi-agent AI system for RFP analysis, compliance matrix generation, and proposal drafting.",
-      tech: ["Copilot Studio", "Power Automate", "LLM"],
+      desc: "Multi-agent AI system for RFP analysis, compliance validation, proposal generation, and enterprise document intelligence.",
+      tech: ["Copilot Studio", "Power Automate", "Azure OpenAI"],
       github: "https://github.com/Ishan10123/Proposal-Bot-Copilot-Studio-Agent",
     },
+
     {
-      title: "RAG Pipeline System",
-      desc: "End-to-end RAG pipeline with hybrid search, embeddings, and reranking.",
-      tech: ["LangChain", "OpenAI", "ChromaDB"],
+      title: "RAG Pipeline From Scratch",
+      desc: "Production-style Retrieval-Augmented Generation pipeline with hybrid search, reciprocal rank fusion, Cohere reranking, retrieval evaluation, and security guardrails.",
+      tech: ["LangChain", "ChromaDB", "OpenAI", "Cohere"],
       github: "https://github.com/Ishan10123/RAG-Pipeline-from-scratch",
     },
+
     {
-      title: "AI Resume Automation",
-      desc: "FastAPI system for parsing and generating structured resumes using LLMs.",
+      title: "AI Resume Formatter",
+      desc: "FastAPI-based intelligent document processing app that extracts, normalizes, and converts PDF/DOC/DOCX resumes into structured JSON and recruiter-ready templates.",
       tech: ["FastAPI", "Ollama", "Python"],
       github: "https://github.com/Ishan10123/AI_Resume_Formatting",
     },
+
+    {
+      title: "AI Account Intelligence",
+      desc: "AI-powered account enrichment platform that identifies companies, predicts buying intent, enriches profiles, and recommends sales actions.",
+      tech: ["Python", "Streamlit", "AI Agents"],
+      github: "https://github.com/Ishan10123/ai-account-intelligence-system",
+    },
+
     {
       title: "Opportunity Scraper",
-      desc: "Automated scraping + filtering system for government opportunities.",
+      desc: "Automated Playwright-based scraper for SAM.gov and GovWin with filtering, structured exports, scheduling, and email reports.",
       tech: ["Playwright", "Python", "Automation"],
       github: "https://github.com/Ishan10123/Opportunity_Scraper",
     },
+
     {
       title: "Candidate Sourcing AI",
-      desc: "Automated candidate sourcing using n8n workflows and LLM enrichment.",
-      tech: ["n8n", "LLM", "APIs"],
+      desc: "AI-powered recruitment workflow using n8n, LLMs, resume parsing, candidate enrichment, and automated sourcing.",
+      tech: ["n8n", "LLMs", "Automation"],
       github: "https://github.com/Ishan10123/Candidate-sourcing-using-n8n-",
     },
+
     {
       title: "AI Skin Analyzer",
-      desc: "CNN-based computer vision system for real-time skin analysis.",
-      tech: ["OpenCV", "CNN", "ML"],
+      desc: "Computer vision application that analyzes skin conditions using CNNs and OpenCV.",
+      tech: ["OpenCV", "CNN", "Deep Learning"],
       github: "https://github.com/Ishan10123/AI-Skin-Analyzer",
     },
+
     {
       title: "Spam SMS Detection",
-      desc: "NLP-based spam classification model with high accuracy.",
-      tech: ["NLP", "Scikit-learn"],
+      desc: "Machine learning model for spam message classification using NLP and Scikit-learn.",
+      tech: ["NLP", "Scikit-learn", "Python"],
       github: "https://github.com/Ishan10123/Spam-SMS-Project",
     },
+
     {
       title: "Credit Risk EDA",
-      desc: "Exploratory analysis uncovering insights in credit datasets.",
-      tech: ["Pandas", "EDA"],
+      desc: "Exploratory data analysis project uncovering financial risk patterns through visualization and statistical analysis.",
+      tech: ["Pandas", "EDA", "Python"],
       github: "https://github.com/Ishan10123/Credit-EDA-Project-1Stop.ai-",
     },
+
     {
       title: "Super Store Sales Forecast",
-      desc: "Power BI dashboard for forecasting sales trends and optimizing inventory decisions.",
+      desc: "Interactive Power BI dashboard for forecasting sales trends and supporting inventory planning.",
       tech: ["Power BI", "SQL", "Analytics"],
       github: "https://github.com/Ishan10123/Super_Store_Sales_Forecast_Dashboard",
     },
   ];
 
   return (
-    <section id="projects" className="py-24 px-6 md:px-12 lg:px-20 bg-[#0a0a0a]">
+    <section
+      id="projects"
+      className="bg-[#0a0a0a] py-24 px-6 md:px-12 lg:px-20"
+    >
       <div className="max-w-7xl mx-auto">
 
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-white">
-          Things I’ve Built
+        <p className="uppercase tracking-[0.25em] text-sm text-purple-400">
+          Projects
+        </p>
+
+        <h2 className="mt-3 text-3xl md:text-5xl font-bold text-white">
+          Featured AI Projects
         </h2>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <p className="mt-5 max-w-3xl text-gray-400 leading-8">
+          A collection of AI applications, Generative AI solutions,
+          intelligent automation systems, RAG pipelines, backend services,
+          and machine learning projects built to solve real-world problems.
+        </p>
 
-          {projects.map((p, i) => (
+        <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+
+          {projects.map((project, index) => (
+
             <div
-              key={i}
-              className="group bg-white/5 border border-gray-800 rounded-xl p-6 hover:border-purple-500 hover:shadow-lg hover:shadow-purple-500/10 transition duration-300"
+              key={index}
+              className="group relative rounded-2xl border border-gray-800 bg-white/5 p-6 backdrop-blur-lg transition-all duration-300 hover:-translate-y-2 hover:border-purple-500 hover:shadow-xl hover:shadow-purple-500/10"
             >
 
-              <h3 className="text-lg font-semibold text-white">
-                {p.title}
-              </h3>
+              {project.featured && (
+                <span className="absolute right-5 top-5 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 px-3 py-1 text-xs font-medium text-white">
+                  Featured
+                </span>
+              )}
 
-              <p className="mt-3 text-sm text-gray-400 leading-relaxed">
-                {p.desc}
+              <p className="text-xs text-gray-500">
+                Project {String(index + 1).padStart(2, "0")}
               </p>
 
-              <div className="mt-4 flex flex-wrap gap-2">
-                {p.tech.map((t, idx) => (
+              <h3 className="mt-3 text-xl font-semibold text-white">
+                {project.title}
+              </h3>
+
+              <p className="mt-4 text-sm leading-7 text-gray-400">
+                {project.desc}
+              </p>
+
+              <div className="mt-6 flex flex-wrap gap-2">
+
+                {project.tech.map((tech) => (
+
                   <span
-                    key={idx}
-                    className="text-xs bg-white/10 border border-gray-700 px-2 py-1 rounded-md text-gray-300"
+                    key={tech}
+                    className="rounded-md border border-gray-700 bg-white/5 px-3 py-1 text-xs text-gray-300"
                   >
-                    {t}
+                    {tech}
                   </span>
+
                 ))}
+
               </div>
 
-              <div className="mt-6 flex items-center justify-between text-sm">
+              <div className="mt-8 flex items-center justify-between">
+
                 <a
-                  href={p.github}
+                  href={project.github}
                   target="_blank"
-                  className="text-purple-400 hover:text-purple-300"
+                  rel="noopener noreferrer"
+                  className="font-medium text-purple-400 transition hover:text-purple-300"
                 >
-                  GitHub →
+                  View Repository
                 </a>
 
-                <span className="text-gray-500 group-hover:text-gray-300 transition">
-                  View Project
+                <span className="text-sm text-gray-500 transition group-hover:text-white">
+                  GitHub
                 </span>
+
               </div>
 
             </div>
+
           ))}
 
         </div>
+
       </div>
     </section>
   );

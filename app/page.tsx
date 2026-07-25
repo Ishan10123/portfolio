@@ -1,5 +1,8 @@
 "use client";
 
+import Image from "next/image";
+import Link from "next/link";
+
 import About from "./components/About";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
@@ -7,150 +10,195 @@ import Experience from "./components/Experience";
 import Contact from "./components/Contact";
 import FadeUp from "./components/ui/FadeUp";
 
+const socialLinks = [
+  {
+    name: "GitHub",
+    href: "https://github.com/Ishan10123",
+  },
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/in/ishankaushik/",
+  },
+  {
+    name: "Email",
+    href: "mailto:ishurbt1@gmail.com",
+  },
+];
+
+const floatingTags = [
+  { label: "LLM", position: "-top-6 left-10" },
+  { label: "APIs", position: "top-10 -right-6" },
+  { label: "RAG", position: "bottom-10 -left-6" },
+  { label: "AI", position: "-bottom-6 right-10" },
+];
+
 export default function Home() {
   return (
-    <div className="w-full overflow-x-hidden scroll-smooth">
+    <div className="w-full overflow-x-hidden">
 
-      {/* HERO */}
+      {/* ================= HERO ================= */}
+
       <section
         id="home"
-        className="min-h-screen flex items-center px-6 md:px-12 lg:px-20 pt-24"
+        className="flex min-h-screen items-center px-6 pt-24 md:px-12 lg:px-20"
       >
-        <div className="max-w-7xl w-full mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <div className="mx-auto grid w-full max-w-7xl items-center gap-16 md:grid-cols-2">
 
-          {/* LEFT */}
-          <div className="flex flex-col items-start justify-center">
+          {/* Left */}
+
+          <div>
 
             <FadeUp>
-              <p className="text-sm text-gray-400 mb-2">
+
+              <p className="mb-3 text-sm uppercase tracking-wider text-purple-400">
                 Hi, I'm
               </p>
+
             </FadeUp>
 
             <FadeUp delay={0.1}>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
+
+              <h1 className="bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-5xl font-bold leading-tight text-transparent md:text-6xl">
                 Ishan Kaushik
               </h1>
+
             </FadeUp>
 
             <FadeUp delay={0.2}>
-              <h2 className="mt-4 text-lg sm:text-xl md:text-2xl text-gray-400">
-                AI Engineer | AI Automation & RAG Systems
+
+              <h2 className="mt-5 text-xl text-gray-300 md:text-2xl">
+                AI Software Engineer | AI Automation | RAG Systems
               </h2>
+
             </FadeUp>
 
             <FadeUp delay={0.3}>
-              <p className="mt-6 text-gray-300 max-w-xl leading-relaxed text-sm sm:text-base">
-                I build intelligent AI automation systems, RAG pipelines, and scalable backend solutions that reduce manual effort and deliver measurable business impact.
+
+              <p className="mt-7 max-w-xl leading-8 text-gray-400">
+                I build production-ready AI applications, AI Agents,
+                Retrieval-Augmented Generation (RAG) systems, and scalable
+                backend solutions that automate complex workflows and deliver
+                measurable business impact.
               </p>
+
             </FadeUp>
 
             {/* CTA */}
+
             <FadeUp delay={0.4}>
-              <div className="mt-8 flex flex-wrap gap-4">
 
-                <a
+              <div className="mt-10 flex flex-wrap gap-4">
+
+                <Link
                   href="#projects"
-                  className="bg-gradient-to-r from-white to-gray-300 text-black px-6 py-3 rounded-lg font-medium hover:scale-105 active:scale-95 transition"
+                  aria-label="View Projects"
+                  className="rounded-lg bg-gradient-to-r from-white to-gray-300 px-6 py-3 font-medium text-black transition hover:scale-105"
                 >
-                  View My Projects →
-                </a>
+                  View My Projects
+                </Link>
 
-                <a
+                <Link
                   href="#contact"
-                  className="border border-gray-600 px-6 py-3 rounded-lg font-medium hover:border-white hover:bg-white/5 hover:scale-105 transition"
+                  aria-label="Contact Me"
+                  className="rounded-lg border border-gray-700 px-6 py-3 font-medium transition hover:border-white hover:bg-white/5"
                 >
                   Contact Me
-                </a>
+                </Link>
 
                 <a
-                  href="/resume.pdf"
-                  download
-                  className="border border-purple-500 text-purple-400 px-6 py-3 rounded-lg font-medium hover:bg-purple-500/10 hover:scale-105 transition"
+                  href="/Ishan_Resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Open Resume"
+                  className="rounded-lg border border-purple-500 px-6 py-3 font-medium text-purple-400 transition hover:bg-purple-500/10"
                 >
-                  Resume
+                  View Resume
                 </a>
 
               </div>
+
             </FadeUp>
 
-            {/* SOCIAL */}
+            {/* Social */}
+
             <FadeUp delay={0.5}>
-              <div className="mt-8 flex items-center gap-6 text-gray-400 text-sm">
 
-                <a
-                  href="https://github.com/Ishan10123"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-white transition"
-                >
-                  GitHub
-                </a>
+              <div className="mt-10 flex flex-wrap items-center gap-6">
 
-                <a
-                  href="https://www.linkedin.com/in/ishankaushik/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-white transition"
-                >
-                  LinkedIn
-                </a>
+                {socialLinks.map((social) => (
 
-                <a
-                  href="mailto:ishurbt1@gmail.com"
-                  className="hover:text-white transition"
-                >
-                  Email
-                </a>
+                  <a
+                    key={social.name}
+                    href={social.href}
+                    target={
+                      social.href.startsWith("mailto")
+                        ? undefined
+                        : "_blank"
+                    }
+                    rel={
+                      social.href.startsWith("mailto")
+                        ? undefined
+                        : "noopener noreferrer"
+                    }
+                    className="text-sm text-gray-400 transition hover:text-white"
+                  >
+                    {social.name}
+                  </a>
+
+                ))}
 
               </div>
+
             </FadeUp>
 
           </div>
 
-          {/* RIGHT */}
+          {/* Right */}
+
           <FadeUp delay={0.3}>
-            <div className="hidden md:flex items-center justify-center relative">
 
-              {/* Glow */}
-              <div className="absolute w-[420px] h-[420px] bg-gradient-to-r from-blue-500/10 to-purple-500/10 blur-3xl rounded-full" />
+            <div className="relative hidden items-center justify-center md:flex">
 
-              {/* Avatar */}
-              <div className="relative w-80 h-80 rounded-full border border-gray-800 bg-white/5 backdrop-blur-xl flex items-center justify-center">
+              <div className="absolute h-[430px] w-[430px] rounded-full bg-gradient-to-r from-blue-500/10 to-purple-500/10 blur-3xl" />
 
-                <img
+              <div className="relative flex h-80 w-80 items-center justify-center rounded-full border border-gray-800 bg-white/5 backdrop-blur-xl">
+
+                <Image
                   src="/myphoto.jpg"
                   alt="Ishan Kaushik"
-                  className="w-72 h-72 rounded-full object-cover"
+                  width={288}
+                  height={288}
+                  priority
+                  className="rounded-full object-cover"
                 />
 
-                {/* TAGS */}
-                {[
-                  { label: "LLM", pos: "-top-6 left-10" },
-                  { label: "APIs", pos: "top-10 -right-6" },
-                  { label: "RAG", pos: "bottom-10 -left-6" },
-                  { label: "AI", pos: "-bottom-6 right-10" },
-                ].map((item) => (
+                {floatingTags.map((tag) => (
+
                   <div
-                    key={item.label}
-                    className={`absolute ${item.pos} text-xs bg-white/10 border border-gray-700 px-3 py-2 rounded-lg hover:scale-110 transition`}
+                    key={tag.label}
+                    className={`absolute ${tag.position} rounded-lg border border-gray-700 bg-white/10 px-3 py-2 text-xs backdrop-blur-md transition hover:scale-110`}
                   >
-                    {item.label}
+                    {tag.label}
                   </div>
+
                 ))}
 
               </div>
 
             </div>
+
           </FadeUp>
 
         </div>
+
       </section>
 
-      {/* DIVIDER */}
-      <div className="h-px bg-gradient-to-r from-transparent via-gray-800 to-transparent mx-6 md:mx-20" />
+      {/* Divider */}
 
-      {/* SECTIONS */}
+      <div className="mx-6 h-px bg-gradient-to-r from-transparent via-gray-800 to-transparent md:mx-20" />
+
+      {/* Sections */}
+
       <section id="about" className="scroll-mt-24">
         <About />
       </section>
